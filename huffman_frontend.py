@@ -2,18 +2,21 @@ import tkinter as tk
 from tkinter import filedialog
 
 def leer_archivo(archivo):
-    dic = {}
     with open(archivo, 'r') as archivo:
         contenido = archivo.read()
-        for caracter in contenido:
-            caracter = caracter.lower()
-            if caracter.isalpha() or caracter.isspace():  
-                if caracter in dic:
-                    dic[caracter] += 1
-                else:
-                    dic[caracter] = 1
-    print(dic)
+        contar_carcteres(contenido)
         
+def contar_carcteres(contenido):
+    dic = {}
+    for caracter in contenido:
+        caracter = caracter.lower()
+        if caracter.isalpha() or caracter.isspace():  
+            if caracter in dic:
+                dic[caracter] += 1
+            else:
+                dic[caracter] = 1
+    print(dic)
+
 def ventana_main():
     root = tk.Tk()
     root.geometry('300x100')
